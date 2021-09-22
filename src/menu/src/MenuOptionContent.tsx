@@ -15,6 +15,7 @@ export default defineComponent({
     extra: [String, Function],
     showArrow: Boolean,
     childActive: Boolean,
+    selected: Boolean,
     hover: Boolean,
     paddingLeft: Number,
     maxIconSize: {
@@ -73,6 +74,7 @@ export default defineComponent({
         class={[
           `${clsPrefix}-menu-item-content`,
           {
+            [`${clsPrefix}-menu-item ${clsPrefix}-menu-item--selected`]: this.selected,
             [`${clsPrefix}-menu-item-content--collapsed`]: this.collapsed,
             [`${clsPrefix}-menu-item-content--child-active`]: this.childActive,
             [`${clsPrefix}-menu-item-content--disabled`]: this.disabled,

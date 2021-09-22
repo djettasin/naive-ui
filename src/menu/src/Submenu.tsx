@@ -96,6 +96,9 @@ export default defineComponent({
       childActive: useMemo(() => {
         return NMenu.activePathRef.value.includes(props.internalKey)
       }),
+      selected: useMemo(() => {
+        return NMenu.mergedValueRef.value === props.internalKey
+      }),
       collapsed: computed(() => {
         if (menuProps.mode === 'horizontal') return false
         if (mergedCollapsedRef.value) {
@@ -128,6 +131,7 @@ export default defineComponent({
         activeIconSize,
         title,
         childActive,
+        selected,
         icon,
         handleClick,
         dropdownShow,
@@ -146,6 +150,7 @@ export default defineComponent({
           title={title}
           showArrow={!isHorizontal}
           childActive={childActive}
+          selected={selected}
           clsPrefix={mergedClsPrefix}
           icon={icon}
           hover={dropdownShow}
